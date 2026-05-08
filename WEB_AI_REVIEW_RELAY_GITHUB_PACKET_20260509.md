@@ -6,7 +6,7 @@ Published relay:
 
 ```text
 repo: https://github.com/Volturipper/ai-studio-webai-role-deliveries
-commit: c5c9bdd83b0efe1bbe0b43f20c6ffa59393d79b0
+branch: main
 visibility: PUBLIC
 ```
 
