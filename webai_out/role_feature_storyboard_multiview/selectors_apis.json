@@ -1,0 +1,100 @@
+{
+  "role_id": "ROLE_FEATURE_STORYBOARD_MULTIVIEW",
+  "status": "HARVEST_READY",
+  "current_selectors": {
+    "page_title": "Storyboard Multi-View",
+    "reference_list": "#reference-list",
+    "reference_slots": [
+      ".ref-slot[data-role=\"character\"]",
+      ".ref-slot[data-role=\"environment\"]",
+      ".ref-slot[data-role=\"props\"]",
+      ".ref-slot[data-role=\"style\"]"
+    ],
+    "reference_bank": "#reference-bank",
+    "grid_mode": "#grid-mode .segment[data-grid=\"4|9|25\"]",
+    "story_prompt": "#story-prompt",
+    "angle_list": "#angle-list",
+    "negative_prompt": "#negative-prompt",
+    "width": "#output-width",
+    "height": "#output-height",
+    "params": "input[data-param=\"steps|cfg|denoise|identity\"]",
+    "seed": "#seed",
+    "workflow_slot": "#workflow-slot",
+    "workflow_custom": "#workflow-custom",
+    "grid_summary": "#grid-summary",
+    "grid_preview": "#grid-preview",
+    "build_payload_button": "#build-payload",
+    "payload_preview": "#payload-preview",
+    "pa_inbox_panel": "#prompt-assistant-storyboard-inbox",
+    "pa_apply_button": "#apply-pa-storyboard-prompt"
+  },
+  "local_storage_keys": {
+    "incoming_generated_references": "ai_studio_reference_assets",
+    "prompt_assistant_storyboard_inbox": "ai_studio_inbox_prompt_storyboard",
+    "shared_asset_targets_from_asset_actions_js": {
+      "reference": "ai_studio_reference_assets",
+      "imagevideo": "ai_studio_inbox_imagevideo",
+      "imageedit": "ai_studio_inbox_imageedit",
+      "upscale": "ai_studio_inbox_upscale",
+      "promptassistant": "ai_studio_inbox_promptassistant"
+    }
+  },
+  "current_payload_shape": {
+    "feature": "storyboard_multi_view",
+    "workflow_slot": "string from #workflow-slot or #workflow-custom",
+    "output_grid": {
+      "panels": "4|9|25",
+      "columns": "sqrt(panels)",
+      "rows": "sqrt(panels)"
+    },
+    "inputs": {
+      "references": "object grouped by role",
+      "prompt": "string",
+      "angle_list": "string",
+      "negative_prompt": "string"
+    },
+    "params": {
+      "width": "number",
+      "height": "number",
+      "steps": "number",
+      "cfg": "number",
+      "denoise": "number",
+      "identity_lock": "number",
+      "seed": "number"
+    },
+    "endpoints_reserved": {
+      "create_job": "/api/storyboard/jobs",
+      "get_job": "/api/storyboard/jobs/{id}",
+      "events": "/api/storyboard/jobs/{id}/events"
+    },
+    "submit_enabled": false
+  },
+  "recommended_payload_additions": {
+    "contract_version": "storyboard_multi_view.v1",
+    "mode": "payload_preview_only",
+    "workflow_binding_status": "template_candidate_not_preflighted",
+    "requires_preflight": true,
+    "run_allowed": false
+  },
+  "current_backend_routes_seen": {
+    "workflow_registry": "GET /api/workflows",
+    "workflow_preflight": "GET /api/workflows/{filename}/preflight",
+    "generic_generate_existing": "POST /api/generate",
+    "storyboard_reserved_create": "POST /api/storyboard/jobs",
+    "storyboard_reserved_get": "GET /api/storyboard/jobs/{id}",
+    "storyboard_reserved_events": "GET /api/storyboard/jobs/{id}/events"
+  },
+  "future_storyboard_job_contract": {
+    "status": "contract only; not implemented by this role",
+    "create": "POST /api/storyboard/jobs",
+    "get": "GET /api/storyboard/jobs/{id}",
+    "events": "GET /api/storyboard/jobs/{id}/events",
+    "must_validate": [
+      "grid panels in [4,9,25]",
+      "workflow preflight ok",
+      "references grouped by allowed role",
+      "no raw API key in payload",
+      "dry_run vs submit mode explicit"
+    ]
+  }
+}

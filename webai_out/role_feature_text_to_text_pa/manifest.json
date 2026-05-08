@@ -1,0 +1,22 @@
+{
+  "status": "HARVEST_READY",
+  "role_id": "ROLE_FEATURE_TEXT_TO_TEXT_PA",
+  "own_output_folder": "webai_out/role_feature_text_to_text_pa/",
+  "files": [
+    "ROLE_REPORT.md",
+    "PA_TEXT_TO_TEXT_PRODUCT_CONTRACT.md",
+    "PA_TEXT_TO_TEXT_PATCH_PLAN.md",
+    "PA_TEXT_TO_TEXT_SELECTORS_APIS.md",
+    "PA_TEXT_TO_TEXT_SMOKE_CHECKLIST.md",
+    "HARVEST_READY.marker",
+    "manifest.json",
+    "SHA256SUMS.txt"
+  ],
+  "recommended_next_review_roles": [
+    "ROLE_PA_TEMPLATE_BUILDER",
+    "ROLE_ASSET_REUSE_CONTRACT"
+  ],
+  "secrets_included": false,
+  "raw_api_keys_included": false,
+  "touches_outside_role": false
+}

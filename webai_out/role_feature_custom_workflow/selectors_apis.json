@@ -1,0 +1,103 @@
+{
+  "schema_version": "ai_studio.custom_workflow_contract.v1",
+  "role_id": "ROLE_FEATURE_CUSTOM_WORKFLOW",
+  "current_frontend_selectors": {
+    "labelInput": "custom nav label input",
+    "workflowSelect": "current raw workflow JSON select",
+    "summary": "status chip container",
+    "workflowMeta": "selected workflow summary text",
+    "modelList": "model preflight list",
+    "prompt-assistant-workflow-inbox": "current injected Prompt Assistant inbox panel"
+  },
+  "current_frontend_functions": [
+    "saveLabel() writes ai_studio_custom_nav_label and postMessage set-custom-nav-label",
+    "loadWorkflows() fetches GET /api/workflows and populates workflowSelect",
+    "runPreflight() fetches GET /api/workflows/{filename}/preflight and renders model_refs"
+  ],
+  "current_storage_contract": {
+    "ai_studio_custom_nav_label": "string, max 12 chars in current UI",
+    "ai_studio_inbox_prompt_workflow": "array, newest item at index 0, current page displays item.prompt if present"
+  },
+  "current_post_message": [
+    {
+      "type": "set-custom-nav-label",
+      "payload": {
+        "label": "string"
+      }
+    }
+  ],
+  "current_backend_apis": {
+    "GET /api/workflows": {
+      "returns": [
+        "workflow_dir",
+        "models_dir",
+        "models_dir_exists",
+        "workflows[]"
+      ],
+      "workflow_item_fields": [
+        "name",
+        "size",
+        "modified",
+        "node_count",
+        "class_types",
+        "model_ref_count",
+        "missing_model_count",
+        "error?"
+      ]
+    },
+    "GET /api/workflows/{filename}/preflight": {
+      "returns": [
+        "name",
+        "workflow_path",
+        "models_dir",
+        "models_dir_exists",
+        "node_count",
+        "model_refs",
+        "missing",
+        "ok"
+      ],
+      "model_ref_fields": [
+        "node_id",
+        "class_type",
+        "input",
+        "model",
+        "hints",
+        "found",
+        "matches"
+      ]
+    },
+    "POST /api/generate": {
+      "status": "exists but should not become the custom-workflow product path without review",
+      "notes": "takes workflow_json and can submit to ComfyUI; custom workflow page should prepare, not auto-submit"
+    }
+  },
+  "missing_or_reserved_apis": {
+    "GET /api/workflows/registry": "recommended additive registry endpoint",
+    "POST /api/workflows/register": "planned in implementation plan; should write metadata sidecar only after review",
+    "POST /api/workflows/{id}/prepare": "recommended prepare-only endpoint; must not submit ComfyUI prompt",
+    "GET /api/jobs, POST /api/jobs, GET /api/jobs/{id}, GET /api/jobs/{id}/events": "implemented in separate isolated experiment per plan, not merged into current role scope"
+  },
+  "proposed_new_selectors": {
+    "workflowCatalog": "registered/unregistered workflow cards",
+    "workflowRequirements": "required inputs, models, custom node status",
+    "workflowPayloadPanel": "Prompt Assistant payload inspect/apply/clear",
+    "workflowPreparePreview": "execution packet preview, copyable",
+    "applyPromptPayloadButton": "apply inbox payload to mapped inputs",
+    "runPreflightButton": "manual preflight trigger",
+    "prepareExecutionButton": "prepare packet only; disabled if blockers exist"
+  },
+  "status_values": [
+    "unregistered",
+    "needs_payload",
+    "preflight_blocked",
+    "ready_to_prepare",
+    "execution_disabled",
+    "ready_to_run_after_owner_confirm"
+  ],
+  "compatibility_rules": [
+    "Do not break existing GET /api/workflows shape.",
+    "Do not break existing GET /api/workflows/{filename}/preflight shape.",
+    "Add new fields instead of renaming old fields.",
+    "Render untrusted names and messages with textContent or escaping helper."
+  ]
+}

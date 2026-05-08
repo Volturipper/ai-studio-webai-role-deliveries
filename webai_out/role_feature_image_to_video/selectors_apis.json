@@ -1,0 +1,65 @@
+{
+  "schema_version": "role_feature_image_to_video.selectors_apis.v2",
+  "role_id": "ROLE_FEATURE_IMAGE_TO_VIDEO",
+  "existing_contracts": {
+    "url_modes": [
+      "/static/imagevideo.html",
+      "/static/imagevideo.html?mode=single",
+      "/static/imagevideo.html?mode=endframes"
+    ],
+    "local_storage_keys": {
+      "asset_inbox": "ai_studio_inbox_imagevideo",
+      "prompt_inbox": "ai_studio_inbox_prompt_imagevideo"
+    },
+    "existing_functions": [
+      "window.handleIncomingAsset(asset)",
+      "renderIncomingAssetTray(\"imagevideo\", ...)"
+    ]
+  },
+  "proposed_selectors": {
+    "status": "#i2v-status-pill",
+    "mode_tabs": "#i2v-mode-tabs",
+    "generation_mode": "#i2v-generation-mode",
+    "local_mode": "#i2v-local-mode",
+    "remote_mode": "#i2v-remote-mode",
+    "hybrid_mode": "#i2v-hybrid-mode",
+    "primary_reference": "#i2v-reference-slot-primary",
+    "first_frame": "#i2v-reference-slot-first",
+    "last_frame": "#i2v-reference-slot-last",
+    "prompt_preview": "#i2v-prompt-preview",
+    "apply_prompt": "#i2v-apply-prompt",
+    "workflow_select": "#i2v-workflow-select",
+    "preflight_status": "#i2v-preflight-status",
+    "payload_preview": "#i2v-payload-preview",
+    "run_button": "#i2v-run-button",
+    "result_panel": "#i2v-result-panel"
+  },
+  "proposed_api_routes": {
+    "GET /api/imagevideo/capabilities": "safe metadata only; no secret read; no ComfyUI prompt submit",
+    "POST /api/imagevideo/prepare": "validate and normalize UI payload; no generation",
+    "POST /api/imagevideo/generate": "optional blocked stub only until workflow mapping is explicit"
+  },
+  "run_gate": [
+    "mode in single/endframes",
+    "generation_mode available",
+    "required image slots present",
+    "prompt present unless workflow marks it optional",
+    "selected workflow exists",
+    "preflight.ok true",
+    "slot mapping explicit",
+    "no raw keys/secrets in request or response"
+  ],
+  "touch_files": [
+    "static/imagevideo.html",
+    "app.py imagevideo-only routes",
+    "static/index.html imagevideo cache query only if needed"
+  ],
+  "must_not_touch": [
+    "static/zimage.html",
+    "static/storyboard.html",
+    "Prompt Assistant launcher CSS/JS",
+    "ComfyUI directories",
+    "secret config files",
+    "stable main 7860"
+  ]
+}

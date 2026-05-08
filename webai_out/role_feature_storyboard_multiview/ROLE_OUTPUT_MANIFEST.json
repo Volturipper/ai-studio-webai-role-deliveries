@@ -1,0 +1,56 @@
+{
+  "role_id": "ROLE_FEATURE_STORYBOARD_MULTIVIEW",
+  "status": "HARVEST_READY",
+  "created_date": "2026-05-09",
+  "output_folder": "webai_out/role_feature_storyboard_multiview/",
+  "baseline": {
+    "path": "D:/Codex/ai-studio/scratch/experiments/storyboard-ui-20260508-133333/",
+    "preview": "http://127.0.0.1:7861/",
+    "owner_facing_entry": "http://127.0.0.1:7861/",
+    "not_owner_facing_entry": "http://127.0.0.1:7861/static/texttext.html"
+  },
+  "read_files": [
+    "WEB_AI_MULTI_ROLE_BASELINE_PACKET_20260509.md",
+    "scratch/experiments/storyboard-ui-20260508-133333/static/storyboard.html",
+    "scratch/experiments/storyboard-ui-20260508-133333/static/asset-actions.js",
+    "AI_STUDIO_NEXT_IMPLEMENTATION_PLAN.md",
+    "scratch/experiments/storyboard-ui-20260508-133333/app.py"
+  ],
+  "source_sha256": {
+    "WEB_AI_MULTI_ROLE_BASELINE_PACKET_20260509.md": "e2c1a03986cc45a6e28f7e4234238475585fd097c792565198232a977a62a25d",
+    "scratch/experiments/storyboard-ui-20260508-133333/static/storyboard.html": "a38433af994a701e20c665ccf98db0a2c6dbb2698fbe75a75917d9df573afcd0",
+    "scratch/experiments/storyboard-ui-20260508-133333/static/asset-actions.js": "e57ffa5dd655ca9b5a4fe8553c372b2fba8c722ea2faaad6a71c21a70e8eb802",
+    "AI_STUDIO_NEXT_IMPLEMENTATION_PLAN.md": "91ec7eef25d0be7d8fa5421a2ee4921df3d60166bbfd5528356bc786c64f4a92",
+    "scratch/experiments/storyboard-ui-20260508-133333/app.py": "f7c7c58f131b8f706f6b3d4d4a7fa3d2e4f613e4b573839b0286f2eb852eff0f"
+  },
+  "owned_files": [
+    "ROLE_OUTPUT_MANIFEST.json",
+    "role_report.md",
+    "patch_plan.md",
+    "selectors_apis.json",
+    "smoke_tests.md",
+    "risks.md",
+    "SHA256SUMS.txt"
+  ],
+  "summary": "Storyboard Multi-View should remain frontend-contract-first: preserve 4/9/25 reference-grid UX, clarify workflow-template status, and defer real ComfyUI binding until workflow registry/job APIs are approved.",
+  "proposed_touch_files": [
+    {
+      "path": "scratch/experiments/storyboard-ui-20260508-133333/static/storyboard.html",
+      "scope": "small additive UI contract polish only; no real submission yet"
+    }
+  ],
+  "proposed_future_touch_files_after_cross_role_approval": [
+    {
+      "path": "scratch/experiments/storyboard-ui-20260508-133333/app.py",
+      "scope": "future /api/storyboard/jobs adapter only after workflow registry/job API contract is accepted"
+    }
+  ],
+  "do_not_touch": [
+    "Prompt Assistant API key config or raw key behavior",
+    "text-to-image implementation",
+    "image-to-video implementation",
+    "ComfyUI model filenames, models directory, custom_nodes directory",
+    "stable main 7860 unless owner explicitly approves"
+  ],
+  "codex_harvest_marker": "HARVEST_READY"
+}

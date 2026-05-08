@@ -1,0 +1,3 @@
+STATUS=HARVEST_READY
+ROLE_ID=ROLE_FEATURE_TEXT_TO_TEXT_PA
+COLLECT_PATH=webai_out/role_feature_text_to_text_pa/

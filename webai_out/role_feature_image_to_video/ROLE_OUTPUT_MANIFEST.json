@@ -1,0 +1,82 @@
+{
+  "schema_version": "role_output_manifest.v2",
+  "status": "HARVEST_READY",
+  "role_id": "ROLE_FEATURE_IMAGE_TO_VIDEO",
+  "iteration": "v2",
+  "one_line_summary": "Image-to-video contract tightened against actual baseline: existing imagevideo page is reserved-only; preserve asset/prompt inbox keys; add truthful capability/prepare contracts before enabling generation.",
+  "own_output_folder": "webai_out/role_feature_image_to_video/",
+  "read_files": [
+    "WEB_AI_MULTI_ROLE_BASELINE_PACKET_20260509.md",
+    "scratch/experiments/storyboard-ui-20260508-133333/static/imagevideo.html",
+    "scratch/experiments/storyboard-ui-20260508-133333/static/asset-actions.js",
+    "scratch/experiments/storyboard-ui-20260508-133333/static/index.html imagevideo frame entries only",
+    "scratch/experiments/storyboard-ui-20260508-133333/app.py relevant routes only"
+  ],
+  "current_baseline_facts": {
+    "product_entry": "http://127.0.0.1:7861/",
+    "iframe_page": "/static/imagevideo.html",
+    "existing_modes": [
+      "single",
+      "endframes"
+    ],
+    "existing_asset_inbox_key": "ai_studio_inbox_imagevideo",
+    "existing_prompt_inbox_key": "ai_studio_inbox_prompt_imagevideo",
+    "current_state": "reserved UI, no real image-to-video workflow binding",
+    "existing_backend_routes_relevant": [
+      "GET /api/workflows",
+      "GET /api/workflows/{filename}/preflight",
+      "POST /api/upload",
+      "POST /api/generate"
+    ],
+    "do_not_enable_generate_until": "workflow slot mapping and preflight contract are explicit"
+  },
+  "files": [
+    {
+      "name": "ROLE_OUTPUT_MANIFEST.json",
+      "purpose": "Machine-readable harvest manifest."
+    },
+    {
+      "name": "role_report.md",
+      "purpose": "Compact role findings and product contract."
+    },
+    {
+      "name": "patch_plan.md",
+      "purpose": "Implementation-ready v2 patch sequence, limited to imagevideo contract."
+    },
+    {
+      "name": "selectors_apis.json",
+      "purpose": "Stable selectors, localStorage keys, APIs, events, touch/do-not-touch lists."
+    },
+    {
+      "name": "smoke_tests.md",
+      "purpose": "Low-token Codex smoke checklist and evidence return."
+    },
+    {
+      "name": "risks.md",
+      "purpose": "Prioritized risk register."
+    },
+    {
+      "name": "codex_short_prompt.md",
+      "purpose": "Minimal Codex prompt after harvest."
+    },
+    {
+      "name": "merge_notes.md",
+      "purpose": "What changed from v1 and how Codex should merge."
+    }
+  ],
+  "proposed_touch_files": [
+    "scratch/experiments/storyboard-ui-20260508-133333/static/imagevideo.html",
+    "scratch/experiments/storyboard-ui-20260508-133333/app.py imagevideo metadata/prepare routes only",
+    "scratch/experiments/storyboard-ui-20260508-133333/static/index.html imagevideo cache query only if needed"
+  ],
+  "do_not_touch": [
+    "text-to-image implementation",
+    "storyboard implementation",
+    "Prompt Assistant launcher visuals",
+    "ComfyUI directories",
+    "raw API keys/tokens/cookies/.env/browser profiles",
+    "stable main 7860 copy"
+  ],
+  "harvest_recommendation": "Collect v2. It supersedes v1 because it anchors selectors/contracts to actual current files and narrows generation enabling conditions.",
+  "attached_or_uploaded": true
+}

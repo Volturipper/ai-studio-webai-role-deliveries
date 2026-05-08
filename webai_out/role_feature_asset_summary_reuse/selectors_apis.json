@@ -1,0 +1,130 @@
+{
+  "status": "HARVEST_READY",
+  "role_id": "ROLE_FEATURE_ASSET_SUMMARY_REUSE",
+  "localStorage_keys_existing": {
+    "reference": "ai_studio_reference_assets",
+    "imagevideo": "ai_studio_inbox_imagevideo",
+    "imageedit": "ai_studio_inbox_imageedit",
+    "upscale": "ai_studio_inbox_upscale",
+    "promptassistant": "ai_studio_inbox_promptassistant"
+  },
+  "localStorage_keys_proposed": {
+    "gallery": "ai_studio_asset_gallery_v1"
+  },
+  "event_contract_proposed": {
+    "event_name": "ai-studio-asset-target-updated",
+    "detail_fields": [
+      "contract",
+      "target",
+      "key",
+      "asset_id",
+      "count"
+    ],
+    "contract": "ai_studio.asset_reuse.v1"
+  },
+  "asset_payload_v1_fields": [
+    "contract",
+    "asset_id",
+    "image",
+    "images",
+    "prompt",
+    "type",
+    "source_page",
+    "timestamp",
+    "params",
+    "target",
+    "receivedAt"
+  ],
+  "existing_window_helpers": [
+    "window.renderAssetActionButtons(data, deleteButtonHtml)",
+    "window.makeAssetDraggable(card, data)",
+    "window.getReferenceAssets()",
+    "window.getAssetInbox(target)",
+    "window.renderIncomingAssetTray(target, options)",
+    "window.sendAssetToTarget(id, target, event)",
+    "window.toggleAssetActionMenu(id, event)"
+  ],
+  "proposed_window_helpers": [
+    "window.getAssetGallery()",
+    "window.clearAssetInbox(target) optional future",
+    "window.consumeAssetInbox(target, asset_id) optional future"
+  ],
+  "selectors_by_file": {
+    "static/assets-summary.html": {
+      "existing": [
+        "#status",
+        "#content"
+      ],
+      "proposed": [
+        "#asset-gallery",
+        "[data-asset-gallery-card]",
+        "[data-asset-section]"
+      ]
+    },
+    "static/asset-actions.js": {
+      "existing_classes": [
+        ".asset-action-menu",
+        ".asset-action-main",
+        ".asset-action-panel",
+        ".asset-action",
+        ".asset-inbox-tray"
+      ],
+      "proposed_internal_helpers": [
+        "escapeHtml",
+        "safeImageUrl",
+        "upsertGallery",
+        "normalizeAsset"
+      ]
+    },
+    "static/zimage.html": {
+      "existing": [
+        "#masonry",
+        "renderImageCard(data, isNew)",
+        "#lightboxPrompt"
+      ],
+      "touch_scope": "asset card registration only if needed"
+    },
+    "static/storyboard.html": {
+      "existing": [
+        "#reference-bank",
+        "#reference-list",
+        ".ref-slot[data-role]",
+        ".ref-gallery",
+        ".drop",
+        ".ref-count"
+      ],
+      "roles": [
+        "character",
+        "environment",
+        "props",
+        "style"
+      ],
+      "touch_scope": "reference bank and drop handling only"
+    },
+    "static/imagevideo.html": {
+      "existing": [
+        "#incomingPreview",
+        "#incomingImage",
+        "#incomingTitle",
+        "#incomingMeta",
+        "#prompt-assistant-video-prompt-inbox"
+      ],
+      "touch_scope": "incoming asset labels/receive panel only"
+    }
+  },
+  "reserved_targets": [
+    "reference",
+    "promptassistant",
+    "imagevideo",
+    "imageedit",
+    "upscale"
+  ],
+  "do_not_touch": [
+    "backend provider config",
+    "Prompt Assistant template builder",
+    "workflow execution internals",
+    "ComfyUI models/custom_nodes",
+    "secrets, tokens, cookies, .env, browser profile content",
+    "stable main / 7860 unless owner approves"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "status": "HARVEST_READY",
+  "role_id": "ROLE_FEATURE_ASSET_SUMMARY_REUSE",
+  "created_at": "2026-05-09",
+  "output_folder": "webai_out/role_feature_asset_summary_reuse/",
+  "baseline": {
+    "path": "D:\\Codex\\ai-studio\\scratch\\experiments\\storyboard-ui-20260508-133333\\",
+    "preview_entry": "http://127.0.0.1:7861/",
+    "not_product_entry": "http://127.0.0.1:7861/static/texttext.html"
+  },
+  "read_files": [
+    "WEB_AI_MULTI_ROLE_BASELINE_PACKET_20260509.md",
+    "scratch/experiments/storyboard-ui-20260508-133333/static/assets-summary.html",
+    "scratch/experiments/storyboard-ui-20260508-133333/static/asset-actions.js",
+    "scratch/experiments/storyboard-ui-20260508-133333/static/zimage.html asset cards only",
+    "scratch/experiments/storyboard-ui-20260508-133333/static/storyboard.html reference bank only",
+    "scratch/experiments/storyboard-ui-20260508-133333/static/imagevideo.html incoming asset section only"
+  ],
+  "files": [
+    "ROLE_OUTPUT_MANIFEST.json",
+    "role_report.md",
+    "patch_plan.md",
+    "selectors_apis.json",
+    "smoke_tests.md",
+    "risks.md",
+    "SHA256SUMS.txt"
+  ],
+  "summary": "Contract-only harvest for generated asset summary and cross-feature reuse: gallery, quick reuse buttons, target inboxes, reference bank, image-to-video receive path, and future drag/drop contract.",
+  "delivery_route": "Attach role_feature_asset_summary_reuse_handoff.zip to OpenPatch GitHub delivery or WebAI Transfer relay.",
+  "attached_upload_ready": true,
+  "implementation_patch_included": false,
+  "proposed_touch_files": [
+    "static/assets-summary.html",
+    "static/asset-actions.js",
+    "static/zimage.html asset-card wiring only if needed",
+    "static/storyboard.html reference-bank/drop wiring only",
+    "static/imagevideo.html incoming-asset section only"
+  ],
+  "do_not_touch": [
+    "backend provider config",
+    "Prompt Assistant template builder",
+    "workflow execution internals",
+    "ComfyUI models/custom_nodes",
+    "secrets, tokens, cookies, .env, browser profile content",
+    "stable main / 7860 unless owner approves"
+  ],
+  "harvest_note": "Ready for Codex to collect as a feature contract. Merge after ROLE_QA_AUTOMATION and before cross-feature contracts."
+}

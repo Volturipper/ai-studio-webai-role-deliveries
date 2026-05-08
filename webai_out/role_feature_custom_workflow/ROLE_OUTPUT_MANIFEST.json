@@ -1,0 +1,83 @@
+{
+  "schema_version": "webai.role_output_manifest.v1",
+  "role_id": "ROLE_FEATURE_CUSTOM_WORKFLOW",
+  "status": "HARVEST_READY",
+  "created_for": "AI Studio multi-role custom workflow productization",
+  "output_folder": "webai_out/role_feature_custom_workflow/",
+  "baseline": "D:/Codex/ai-studio/scratch/experiments/storyboard-ui-20260508-133333/",
+  "product_entry": "http://127.0.0.1:7861/",
+  "read_files": [
+    "WEB_AI_MULTI_ROLE_BASELINE_PACKET_20260509.md",
+    "scratch/experiments/storyboard-ui-20260508-133333/static/custom-workflow.html",
+    "scratch/experiments/storyboard-ui-20260508-133333/app.py workflow/job/preflight routes only",
+    "AI_STUDIO_NEXT_IMPLEMENTATION_PLAN.md workflow registry sections only"
+  ],
+  "files": [
+    {
+      "path": "ROLE_OUTPUT_MANIFEST.json",
+      "purpose": "machine-readable role handoff manifest"
+    },
+    {
+      "path": "role_report.md",
+      "purpose": "compact findings and product contract"
+    },
+    {
+      "path": "patch_plan.md",
+      "purpose": "minimal additive patch plan for Codex or integrator"
+    },
+    {
+      "path": "selectors_apis.json",
+      "purpose": "selectors/localStorage/postMessage/API contract inventory"
+    },
+    {
+      "path": "smoke_tests.md",
+      "purpose": "low-token acceptance and smoke checklist"
+    },
+    {
+      "path": "risks.md",
+      "purpose": "risks, blockers, and non-goals"
+    }
+  ],
+  "proposed_touch_files": [
+    "scratch/experiments/storyboard-ui-20260508-133333/static/custom-workflow.html",
+    "scratch/experiments/storyboard-ui-20260508-133333/app.py workflow registry/preflight additions only",
+    "scratch/experiments/storyboard-ui-20260508-133333/config/workflow_registry.example.json or workflows/*.meta.example.json",
+    "scratch/experiments/storyboard-ui-20260508-133333/static/js/workflow-registry.js optional small helper"
+  ],
+  "do_not_touch": [
+    "Prompt Assistant visual launcher CSS",
+    "feature-specific generation pages except shared naming contracts",
+    "ComfyUI models/custom_nodes",
+    "stable main 7860 unless owner approves",
+    ".env, tokens, cookies, API keys, browser profiles, credential files"
+  ],
+  "harvest_summary": "Custom workflow registry/preflight product contract is ready: move from raw JSON dropdown to registered workflow cards, input/model/custom-node preflight, Prompt Assistant payload application, and prepare-only execution packet.",
+  "attached_zip": "role_feature_custom_workflow_handoff.zip",
+  "file_hashes": [
+    {
+      "path": "role_report.md",
+      "sha256": "eb0d651c9425c62264bc7b23b1077581d4ddabd4fbd1a776e9ac4ad146ba6ae2",
+      "bytes": 4272
+    },
+    {
+      "path": "patch_plan.md",
+      "sha256": "56c1d9be85f34f6bf2362481ad570f6f69d4ddd17054a60adda67cf5d879f52e",
+      "bytes": 4974
+    },
+    {
+      "path": "selectors_apis.json",
+      "sha256": "6e3c26616b3cea55c6a186c1d08be3dfa39c8c4c3ca01ce2adb050541e165573",
+      "bytes": 3719
+    },
+    {
+      "path": "smoke_tests.md",
+      "sha256": "6bdf9b447005a0a860e99d1f78817d520e1acd01ebe00521ef01c843992ffd1c",
+      "bytes": 2304
+    },
+    {
+      "path": "risks.md",
+      "sha256": "b6a2f0455b6a1449fb445cae51c3e6629d6a745d821e2c9a429aff4a4b696160",
+      "bytes": 2314
+    }
+  ]
+}

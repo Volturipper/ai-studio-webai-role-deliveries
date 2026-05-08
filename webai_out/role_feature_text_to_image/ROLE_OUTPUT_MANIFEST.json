@@ -1,0 +1,55 @@
+{
+  "status": "HARVEST_READY",
+  "role_id": "ROLE_FEATURE_TEXT_TO_IMAGE",
+  "iteration": "v2_source_verified_contract",
+  "created_at_utc": "2026-05-08T20:59:57Z",
+  "source_package": "ai-studio (3).zip",
+  "source_package_sha256": "2a4fd29b2571c954dfa6eba3bde54fbfabf6d05561675c46e127160e6f8eaab4",
+  "baseline": "D:/Codex/ai-studio/scratch/experiments/storyboard-ui-20260508-133333/",
+  "product_preview_entry": "http://127.0.0.1:7861/",
+  "role_output_dir": "webai_out/role_feature_text_to_image/",
+  "read_files": [
+    "WEB_AI_MULTI_ROLE_BASELINE_PACKET_20260509.md",
+    "scratch/experiments/storyboard-ui-20260508-133333/static/zimage.html",
+    "scratch/experiments/storyboard-ui-20260508-133333/static/asset-actions.js",
+    "scratch/experiments/storyboard-ui-20260508-133333/app.py",
+    "scratch/experiments/storyboard-ui-20260508-133333/static/js/prompt-assistant-web-adapter.js"
+  ],
+  "read_file_sha256": {
+    "WEB_AI_MULTI_ROLE_BASELINE_PACKET_20260509.md": "e2c1a03986cc45a6e28f7e4234238475585fd097c792565198232a977a62a25d",
+    "scratch/experiments/storyboard-ui-20260508-133333/static/zimage.html": "dea00c9710dff6b06968d2e1b57bf7328c3729a71ec5ab1bea12bdb08fffc638",
+    "scratch/experiments/storyboard-ui-20260508-133333/static/asset-actions.js": "e57ffa5dd655ca9b5a4fe8553c372b2fba8c722ea2faaad6a71c21a70e8eb802",
+    "scratch/experiments/storyboard-ui-20260508-133333/app.py": "f7c7c58f131b8f706f6b3d4d4a7fa3d2e4f613e4b573839b0286f2eb852eff0f",
+    "scratch/experiments/storyboard-ui-20260508-133333/static/js/prompt-assistant-web-adapter.js": "07e8d7016072d714e04eef8b21ce4c46967c6f88fa22d25cfe1e456e5646d2d7"
+  },
+  "owned_files": [
+    "ROLE_OUTPUT_MANIFEST.json",
+    "role_report.md",
+    "patch_plan.md",
+    "selectors_apis.json",
+    "smoke_tests.md",
+    "risks.md"
+  ],
+  "proposed_touch_files": [
+    "scratch/experiments/storyboard-ui-20260508-133333/static/zimage.html",
+    "scratch/experiments/storyboard-ui-20260508-133333/static/asset-actions.js only for additive textimage asset metadata if needed",
+    "scratch/experiments/storyboard-ui-20260508-133333/app.py only for future provider-neutral route contract; do not change raw key behavior"
+  ],
+  "do_not_touch": [
+    "Prompt Assistant launcher CSS",
+    "storyboard/imagevideo/custom-workflow implementations",
+    "ComfyUI models/custom_nodes",
+    "raw key behavior, .env, cookies, tokens, browser profiles, or secret config files",
+    "stable main 7860 unless owner explicitly approves"
+  ],
+  "meaningful_iteration_delta": [
+    "Verified actual zimage.html implementation instead of relying only on baseline notes.",
+    "Corrected receive/apply understanding: current page has Apply only; Append/Dismiss are recommended P1 additions.",
+    "Separated immediate no-backend UI patch from deferred router/backend provider contract.",
+    "Added exact current endpoints and stop conditions for avoiding accidental real generation without approval."
+  ],
+  "one_line_summary": "Text-to-image page is ready for Codex harvest as a contract-first feature brief: minimal zimage UI patch first, router/backend changes deferred to integration roles, no secrets or broad code rewrites.",
+  "harvest_marker": "HARVEST_READY",
+  "handoff_zip": "role_feature_text_to_image_handoff_v2.zip",
+  "handoff_zip_sha256": "9e23ee1e6aecbe76c7d78b7ffd429095c2471b4020c8cd6ff286b19f12039a98"
+}

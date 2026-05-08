@@ -1,0 +1,101 @@
+{
+  "status": "HARVEST_READY",
+  "role_id": "ROLE_FEATURE_TEXT_TO_IMAGE",
+  "iteration": "v2_source_verified_contract",
+  "selectors": {
+    "prompt_input": "#prompt",
+    "width_input": "#width",
+    "height_input": "#height",
+    "render_button": "#mainGenBtn",
+    "render_button_label": "#btnText",
+    "local_mode_button": "#modeLocal",
+    "remote_mode_button": "#modeCloud",
+    "mode_glider": "#glider",
+    "status_text": "#statusText",
+    "status_dot": "#dotColor",
+    "gallery_mount": "#masonry",
+    "load_more_trigger": "#loadMoreTrigger",
+    "lightbox": "#lightbox",
+    "lightbox_image": "#lightboxImg",
+    "lightbox_prompt": "#lightboxPrompt",
+    "prompt_assistant_inbox_panel": "#prompt-assistant-inbox-panel",
+    "prompt_assistant_apply_button_current": "#apply-pa-textimage-prompt",
+    "proposed_run_status": "#zimage-run-status",
+    "asset_action_menu": ".asset-action-menu",
+    "asset_action_button": ".asset-action",
+    "asset_inbox_tray": ".asset-inbox-tray"
+  },
+  "local_storage_keys": {
+    "client_id": "client_id",
+    "engine_mode": "zimage_engine_mode",
+    "prompt_assistant_to_textimage": "ai_studio_inbox_textimage",
+    "reference_assets": "ai_studio_reference_assets",
+    "asset_to_prompt_assistant": "ai_studio_inbox_promptassistant",
+    "asset_to_imagevideo": "ai_studio_inbox_imagevideo",
+    "asset_to_imageedit": "ai_studio_inbox_imageedit",
+    "asset_to_upscale": "ai_studio_inbox_upscale",
+    "legacy_page_token_key_seen_do_not_expand": "modelscope_api_token"
+  },
+  "current_frontend_functions": [
+    "switchEngine(mode)",
+    "handleRender()",
+    "runCloudTask(prompt)",
+    "runLocalTask(prompt)",
+    "setLoading(isLoading)",
+    "createPlaceholder(text)",
+    "renderImageCard(data,isNew)",
+    "loadHistory(page)",
+    "deleteHistoryItem(timestamp,event)",
+    "openLightbox(url,prompt)",
+    "downloadImage()",
+    "applySameStyle()",
+    "Prompt Assistant inbox IIFE using ai_studio_inbox_textimage",
+    "renderAssetActionButtons(data,deleteButtonHtml)",
+    "makeAssetDraggable(card,data)",
+    "sendAssetToTarget(id,target,event)",
+    "PromptAssistantWebAdapter.sendTarget(target)"
+  ],
+  "current_api_routes": {
+    "GET /": "serves static/index.html product shell",
+    "GET /api/history?type=zimage": "loads zimage and cloud history records",
+    "POST /api/history/delete": "deletes one history record and output files by timestamp",
+    "GET /api/queue_status?client_id=...": "returns queue total and current client position",
+    "GET /api/config/token": "current token retrieval route; do not expand raw key behavior",
+    "POST /api/config/token": "current token set route; outside this role's patch scope",
+    "DELETE /api/config/token": "current token delete route; outside this role's patch scope",
+    "POST /api/generate": "current local ComfyUI generation route",
+    "POST /generate": "current remote ModelScope-specific route; implementation detail, not final contract"
+  },
+  "current_local_generate_body": {
+    "prompt": "string",
+    "width": "number",
+    "height": "number",
+    "type": "zimage",
+    "client_id": "string",
+    "workflow_json": "optional",
+    "params": "object"
+  },
+  "current_remote_generate_body": {
+    "prompt": "string",
+    "api_key": "string supplied by current code path; do not expose or log",
+    "resolution": "WIDTHxHEIGHT"
+  },
+  "proposed_future_contract": {
+    "GET /api/generation/modes?feature=textimage": "provider-neutral mode availability list",
+    "POST /api/generation/text-image": "provider-neutral generation wrapper, deferred to generation router integration"
+  },
+  "proposed_asset_payload": {
+    "feature": "textimage",
+    "source": "generated|history|prompt_assistant",
+    "mode": "local|remote|hybrid",
+    "prompt": "string",
+    "images": [
+      "string"
+    ],
+    "width": "number",
+    "height": "number",
+    "timestamp": "number",
+    "type": "zimage|cloud|textimage",
+    "params": "object"
+  }
+}
