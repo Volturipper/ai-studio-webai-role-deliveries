@@ -2,6 +2,14 @@
 
 Purpose: let reviewers inspect harvested designer-role output incrementally without waiting for every designer role to finish.
 
+Published relay:
+
+```text
+repo: https://github.com/Volturipper/ai-studio-webai-role-deliveries
+commit: c5c9bdd83b0efe1bbe0b43f20c6ffa59393d79b0
+visibility: PUBLIC
+```
+
 ## Read Order For Reviewers
 
 1. `CODEX_START_HERE.md`
